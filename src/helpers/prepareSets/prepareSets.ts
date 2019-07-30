@@ -2,8 +2,8 @@ import { cartesianProduct } from "../cartesianProduct";
 
 /**
  * prepareSets
- * @param simpleSets - flat array of odds to combine
- * @param complexSets - array of arrays of odds that are not combinable to create flat arrays of combinable ones
+ * @param simpleSets - flat array of items to combine
+ * @param complexSets - array of arrays of items that are not combinable to create flat arrays of combinable ones
  */
 export function prepareSets<T>(simpleSets: T[], complexSets?: T[][]) {
     if (!complexSets) {

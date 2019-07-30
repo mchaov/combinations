@@ -93,7 +93,7 @@ export function processSet<T>(comboSize: number, options: T[]): T[] {
  *
  * }, {...}, {...} ]
  *
- * @param arrs - multiple sets of odds to process
+ * @param arrs - multiple sets of items to process
  */
 export function processMultipleSets<T>(arrs: T[][]): ProcessedSet[] {
     return arrs.map(x => processSets(x))
