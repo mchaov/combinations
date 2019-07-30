@@ -6,6 +6,8 @@ const total = 21 * 20 * 19 * 18 * 17 * 16 * 15 * 14 * 13 * 12 * 11 * 10 * 9 * 8 
 
 describe("Factorial suite", () => {
     it("factorial calculates factorials", () => {
+        expect(factorial(0)).toBe(1)
+        expect(factorial(1)).toBe(1)
         expect(factorial(root)).toBe(total)
     });
 })
