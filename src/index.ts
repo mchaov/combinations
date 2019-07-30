@@ -17,7 +17,6 @@ let start = performance.now();
 let normalizedSets = prepareSets(
     simpleSets//, complexSets
 );
-
 let timeNormalizedSets = performance.now() - start;
 
 let timeAllSetsStart = performance.now();

@@ -6,7 +6,7 @@
   "scripts": {
     "pack": "",
     "build": "tsc",
-    "start": "node ./lib/index.js",
+    "start": "node --max-old-space-size=8192 ./lib/index.js",
     "test": "jest --bail --config ./.configs/jest.config.js --runInBand",
     "tdd": "jest --verbose --config ./.configs/jest.config.js --runInBand --watchAll",
     "test:coverage": "jest --coverage --bail --config ./.configs/jest.config.js --runInBand"
