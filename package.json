@@ -1,0 +1,33 @@
+{
+  "name": "combinations",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Combinations with TS",
+  "scripts": {
+    "pack": "",
+    "build": "tsc",
+    "start": "node ./lib/index.js",
+    "test": "jest --bail --config ./.configs/jest.config.js --runInBand",
+    "tdd": "jest --verbose --config ./.configs/jest.config.js --runInBand --watchAll",
+    "test:coverage": "jest --coverage --bail --config ./.configs/jest.config.js --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "@types/node": "12.6.8",
+    "@types/jest": "23.3.13",
+    "babel-preset-env": "1.7.0",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "ts-jest": "23.10.5",
+    "ts-node": "8.3.0",
+    "typescript": "3.5.3",
+    "webpack": "4.38.0",
+    "webpack-raw-bundler": "1.3.6",
+    "webpack-bundle-analyzer": "3.4.1",
+    "webpack-cli": "3.3.6"
+  },
+  "dependencies": {}
+}
