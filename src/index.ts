@@ -11,7 +11,7 @@ let simpleSets = [
     5, 6, 7, 8, 9, 10,
     11, 12, 13, 14, 15, 16, 17, 18, 19, 20
 ];
-let complexSets = [[1, 2]];
+let complexSets = [[1, 1]];
 
 let normalizedSets = prepareSets(simpleSets.slice(1), complexSets);
 normalizedSets;
@@ -55,7 +55,7 @@ console.log("Total:", simpleSetTotal);
 
 
 let complexSet = { ...perfMap };
-console.log("\n\nGeneration for:", normalizedSets);
+console.log(`\n\nGeneration for: [${simpleSets.slice(1)}] + [${complexSets}]\n`, normalizedSets);
 Object.keys(complexSet).forEach(x => {
     let n = parseInt(x);
     let start = performance.now();
