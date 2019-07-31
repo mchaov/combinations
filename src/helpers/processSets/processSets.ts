@@ -6,7 +6,7 @@ export type ProcessedSet = {
 }
 
 /**
- * processAllSets - produces an object with all the possible combinations of 2 or more elements
+ * processAllSets - produces an object with all the possible combinations of 1 or more elements
  *
  * Example: [a, b, c, ...] => {
  *  2: [
@@ -33,7 +33,7 @@ export type ProcessedSet = {
  */
 export function processAllSets<T>(arr: T[]): ProcessedSet {
     let data = {};
-    for (let i = 2; i <= arr.length; i++) {
+    for (let i = 1; i <= arr.length; i++) {
         data[i] = processSet(i, arr);
     }
     return data;
