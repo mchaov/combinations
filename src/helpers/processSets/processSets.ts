@@ -6,7 +6,7 @@ export type ProcessedSet = {
 }
 
 /**
- * processSets - produces an object with the possible combinations.
+ * processAllSets - produces an object with all the possible combinations of 2 or more elements
  *
  * Example: [a, b, c, ...] => {
  *  2: [
@@ -31,7 +31,7 @@ export type ProcessedSet = {
  *
  * @param arr - numbers to proccess
  */
-export function processSets<T>(arr: T[]): ProcessedSet {
+export function processAllSets<T>(arr: T[]): ProcessedSet {
     let data = {};
     for (let i = 2; i <= arr.length; i++) {
         data[i] = processSet(i, arr);
@@ -96,5 +96,5 @@ export function processSet<T>(comboSize: number, options: T[]): T[] {
  * @param arrs - multiple sets of items to process
  */
 export function processMultipleSets<T>(arrs: T[][]): ProcessedSet[] {
-    return arrs.map(x => processSets(x))
+    return arrs.map(x => processAllSets(x))
 }
