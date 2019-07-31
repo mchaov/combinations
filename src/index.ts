@@ -14,25 +14,26 @@ let simpleSets = [
 let complexSets = [[1, 2]];
 
 let normalizedSets = prepareSets(simpleSets.slice(1), complexSets);
+normalizedSets;
 
 const perfMap = {
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    8: 0,
-    9: 0,
-    10: 0,
-    11: 0,
-    12: 0,
-    13: 0,
-    14: 0,
-    15: 0,
-    16: 0,
-    17: 0,
-    18: 0,
-    19: 0
+    2: [0, 0],
+    3: [0, 0],
+    4: [0, 0],
+    5: [0, 0],
+    6: [0, 0],
+    8: [0, 0],
+    9: [0, 0],
+    10: [0, 0],
+    11: [0, 0],
+    12: [0, 0],
+    13: [0, 0],
+    14: [0, 0],
+    15: [0, 0],
+    16: [0, 0],
+    17: [0, 0],
+    18: [0, 0],
+    19: [0, 0]
 };
 
 let flatSet = { ...perfMap };
@@ -40,19 +41,34 @@ console.log("Generation for:", simpleSets);
 Object.keys(flatSet).forEach(x => {
     let n = parseInt(x);
     let start = performance.now();
-    flatSet[x] = `${processSet(n, simpleSets).length} combos in ${performance.now() - start} ms`;
+    flatSet[x][0] = processSet(n, simpleSets).length;
+    flatSet[x][1] = performance.now() - start;
 });
+let simpleSetTotal = Object.keys(flatSet).reduce((a, b) => {
+    return [
+        a[0] + flatSet[b][0],
+        a[1] + flatSet[b][1]
+    ]
+}, [0, 0]);
 console.log(flatSet);
+console.log("Total:", simpleSetTotal);
+
 
 let complexSet = { ...perfMap };
-console.log("Generation for:", normalizedSets);
+console.log("\n\nGeneration for:", normalizedSets);
 Object.keys(complexSet).forEach(x => {
     let n = parseInt(x);
     let start = performance.now();
 
     // use the minimum logic needed, no need for loops and memory allocations to polute the results
-    complexSet[x] = `${
-        processSet(n, normalizedSets[0]).length + processSet(n, normalizedSets[1]).length
-        } combos in ${performance.now() - start} ms`;
+    complexSet[x][0] = processSet(n, normalizedSets[0]).length + processSet(n, normalizedSets[1]).length;
+    complexSet[x][1] = performance.now() - start;
 });
+let complexSetTotal = Object.keys(complexSet).reduce((a, b) => {
+    return [
+        a[0] + complexSet[b][0],
+        a[1] + complexSet[b][1]
+    ]
+}, [0, 0]);
 console.log(complexSet);
+console.log("Total:", complexSetTotal);
