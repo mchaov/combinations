@@ -71,6 +71,7 @@ Example:
 
 ```typescript
 [a, b, c, ...] => {
+ 1: [...]
  2: [
      [a, b]
      [a, c]
