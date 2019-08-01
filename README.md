@@ -65,7 +65,7 @@ processSet(2, [a, b, c, ...]) => [
 }
 ```
 
-**processSets** - produces an object with the possible combinations.
+**processAllSets** - produces an object with all the possible combinations of 1 or more elements.
 
 Example:
 
