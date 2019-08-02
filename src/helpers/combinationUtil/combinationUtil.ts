@@ -22,7 +22,7 @@ export function combinationUtil<T>(dataset: T[], buffer: T[], start: number, end
         return innerCombination(radius, buffer, aggregate);
     }
 
-    combinationIteration(start, end, radius, index, buffer, dataset, aggregate);
+    return combinationIteration(start, end, radius, index, buffer, dataset, aggregate);
 }
 
 /**
@@ -38,6 +38,7 @@ function innerCombination<T>(radius: number, buffer: T[], aggregate: T[][]) {
     }
     aggregate[combinationsCache] = combo;
     combinationsCache++;
+    return aggregate;
 }
 
 /**
@@ -53,6 +54,7 @@ function innerCombination<T>(radius: number, buffer: T[], aggregate: T[][]) {
 function combinationIteration<T>(start: number, end: number, radius: number, index: number, buffer: T[], dataset: T[], aggregate: T[][]) {
     for (let i = start; i <= end && end - i + 1 >= radius - index; i++) {
         buffer[index] = dataset[i];
-        combinationUtil(dataset, buffer, i + 1, end, index + 1, radius, aggregate);
+        aggregate = combinationUtil(dataset, buffer, i + 1, end, index + 1, radius, aggregate);
     }
+    return aggregate;
 }

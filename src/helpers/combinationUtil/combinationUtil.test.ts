@@ -15,15 +15,14 @@ const testCases = [{
 describe("Combination utility suite", () => {
     testCases.forEach(
         x => it(`Combines ${x.input[0]} out of ${x.input[1]} => ${x.output.join(" | ")}`, () => {
-            let aggregate = new Array(kOutOfN(x.input[0] as number, (x.input[1] as any).length));
-            combinationUtil(
+            let aggregate = combinationUtil(
                 x.input[1] as any,
                 new Array(x.input[0] as any),
                 0,
                 (x.input[1] as any).length - 1,
                 0,
                 x.input[0] as any,
-                aggregate
+                new Array(kOutOfN(x.input[0] as number, (x.input[1] as any).length))
             );
             expect(aggregate).toEqual(x.output);
         })

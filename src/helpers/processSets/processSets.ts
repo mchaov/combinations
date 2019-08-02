@@ -1,8 +1,8 @@
 import { kOutOfN } from "../binominalDistribution";
 import { combinationUtil } from "../combinationUtil";
 
-export type ProcessedSet = {
-    [key: string]: any[][]
+export type ProcessedSet<T> = {
+    [key: string]: T[][]
 }
 
 /**
@@ -31,7 +31,7 @@ export type ProcessedSet = {
  *
  * @param arr - numbers to proccess
  */
-export function processAllSets<T>(arr: T[]): ProcessedSet {
+export function processAllSets<T>(arr: T[]): ProcessedSet<T> {
     let data = {};
     for (let i = 1; i <= arr.length; i++) {
         data[i] = processSet(i, arr);
@@ -55,18 +55,16 @@ export function processAllSets<T>(arr: T[]): ProcessedSet {
  * @param comboSize - how many items to combine out of the set
  * @param options - possible options to combine from
  */
-export function processSet<T>(comboSize: number, options: T[]): T[] {
-    let temp = new Array(kOutOfN(comboSize, options.length));
-    combinationUtil(
+export function processSet<T>(comboSize: number, options: T[]): T[][] {
+    return combinationUtil<T>(
         options,
         new Array(comboSize),
         0,
         options.length - 1,
         0,
         comboSize,
-        temp
+        new Array(kOutOfN(comboSize, options.length))
     );
-    return temp;
 }
 
 /**
@@ -95,6 +93,6 @@ export function processSet<T>(comboSize: number, options: T[]): T[] {
  *
  * @param arrs - multiple sets of items to process
  */
-export function processMultipleSets<T>(arrs: T[][]): ProcessedSet[] {
-    return arrs.map(x => processAllSets(x))
+export function processMultipleSets<T>(arrs: T[][]): ProcessedSet<T>[] {
+    return arrs.map(x => processAllSets<T>(x))
 }
