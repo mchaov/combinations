@@ -14,16 +14,16 @@ Optionally after build you can use ```npm run start -- ##``` to denote the numbe
 
 Use the table below to understand the impact from your numbers:
 
-| X to choose from |                   Total possible combos | Time mm:ss:ms |
-| :--------------- | --------------------------------------: | ------------: |
-| 5                |                                      31 |    00:00.0001 |
-| 10               |                                   1 023 |      00:00.02 |
-| 15               |                                  32 767 |      00:00.45 |
-| 20               |                               1 048 575 |      00:00.16 |
-| 25               |                              33 554 431 |      00:15.47 |
-| 26               |                              67 108 863 |      00:47.60 |
-| 27               |                             134 217 727 |      02:45.50 |
-| 28               | FAILS: array lenght in JS is up to 2^32 |        NaN :) |
+| choose from X |                   Total possible combos | Time mm:ss:ms |
+| :------------ | --------------------------------------: | ------------: |
+| 5             |                                      31 |    00:00.0001 |
+| 10            |                                   1 023 |      00:00.02 |
+| 15            |                                  32 767 |      00:00.45 |
+| 20            |                               1 048 575 |      00:00.16 |
+| 25            |                              33 554 431 |      00:15.47 |
+| 26            |                              67 108 863 |      00:47.60 |
+| 27            |                             134 217 727 |      02:45.50 |
+| 28            | FAILS: array lenght in JS is up to 2^32 |        NaN :) |
 
 Combinations include: single item, x choose y, all items. Times are provided for reference only, they are dependend on your PC configuration, duh...
 
