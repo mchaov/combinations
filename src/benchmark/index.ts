@@ -2,8 +2,10 @@ import { performance } from "perf_hooks";
 
 import {
     processSet,
-    prepareSets
+    prepareSets,
 } from "../";
+processSet;
+prepareSets;
 
 let input: any = parseInt(process.argv[process.argv.length - 1]);
 
@@ -15,10 +17,10 @@ const TOTAL_ITEMS = input;
 
 let simpleSets = new Array(TOTAL_ITEMS);
 let complexSets = [[1, 1]];
-let perfMap: { [key: string]: number[] } = {};
+let perfMap: { [key: string]: any[] } = {};
 
 for (let i = 0; i < TOTAL_ITEMS; i++) {
-    simpleSets[i + 1] = i;
+    simpleSets[i] = i + 1;
     perfMap[i + 1] = [0, 0];
 }
 
@@ -42,7 +44,40 @@ let simpleSetTotal = Object.keys(flatSet).reduce((a, b) => {
 console.log(flatSet);
 console.log("Total:", simpleSetTotal);
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// // test the string version
+// import { combinationUtil } from "../helpers/combinationUtilStr";
+// let stringTimesTest = { ...perfMap }
+// console.log("Generation for:", simpleSets);
+// Object.keys(stringTimesTest).forEach(x => {
+//     let n = parseInt(x);
+//     let start = performance.now();
+//     stringTimesTest[x][0] = combinationUtil(
+//         simpleSets,
+//         new Array(n),
+//         0,
+//         simpleSets.length - 1,
+//         0,
+//         n,
+//         ""
+//     ).length;
+//     stringTimesTest[x][1] = performance.now() - start;
+// });
+// let stringTimesTestTotal = Object.keys(stringTimesTest).reduce((a, b) => {
+//     return [
+//         a[0] + stringTimesTest[b][0],
+//         a[1] + stringTimesTest[b][1]
+//     ]
+// }, [0, 0]);
+// console.log(stringTimesTest);
+// console.log("Total:", stringTimesTestTotal);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// // test with the cartesian product
 // let complexSet = { ...perfMap };
 // console.log(`\n\nGeneration for: [${simpleSets.slice(1)}] + [${complexSets}]\n`, normalizedSets);
 // Object.keys(complexSet).forEach(x => {
