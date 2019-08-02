@@ -1,3 +1,4 @@
+import { kOutOfN } from "../binominalDistribution";
 import { combinationUtil } from "./combinationUtil";
 
 const testCases = [{
@@ -14,7 +15,7 @@ const testCases = [{
 describe("Combination utility suite", () => {
     testCases.forEach(
         x => it(`Combines ${x.input[0]} out of ${x.input[1]} => ${x.output.join(" | ")}`, () => {
-            let aggregate = [];
+            let aggregate = new Array(kOutOfN(x.input[0] as number, (x.input[1] as any).length));
             combinationUtil(
                 x.input[1] as any,
                 new Array(x.input[0] as any),
@@ -24,7 +25,7 @@ describe("Combination utility suite", () => {
                 x.input[0] as any,
                 aggregate
             );
-            expect(aggregate).toEqual(x.output)
+            expect(aggregate).toEqual(x.output);
         })
     )
 
