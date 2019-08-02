@@ -28,11 +28,13 @@ const factorialCache = {
  */
 export function factorial(n: number) {
     if (!factorialCache[n]) {
-        let f = 1;
-        for (let i = 2; i <= n; i++) {
+        let f = n;
+        let i = n - 1;
+        while (!factorialCache[i] && i > 0) {
             f = f * i;
+            i = i - 1;
         }
-        factorialCache[n] = f;
+        factorialCache[n] = f * factorialCache[i];
     }
     return factorialCache[n];
 }
