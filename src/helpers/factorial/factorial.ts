@@ -30,7 +30,7 @@ export function factorial(n: number) {
     if (!factorialCache[n]) {
         let f = n;
         let i = n - 1;
-        while (!factorialCache[i] && i > 0) {
+        while (!factorialCache[i] && i > 1) {
             f = f * i;
             i = i - 1;
         }
