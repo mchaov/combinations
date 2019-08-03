@@ -26,15 +26,6 @@ const factorialCache = {
  * factorial
  * @param n - number to factorize
  */
-export function factorial(n: number) {
-    if (!factorialCache[n]) {
-        let f = n;
-        let i = n - 1;
-        while (!factorialCache[i] && i > 1) {
-            f = f * i;
-            i = i - 1;
-        }
-        factorialCache[n] = f * factorialCache[i];
-    }
-    return factorialCache[n];
+export function factorial(n) {
+    return n < 2 ? 1 : factorialCache[n] || (factorialCache[n] = n * factorial(n - 1));
 }
